@@ -7,96 +7,276 @@
     <title>CryptoTrade</title>
     <link rel="stylesheet" href="https://use.hugeicons.com/font/icons.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slideDown {
+            animation: slideDown 0.3s ease-out;
+        }
+    </style>
 </head>
 
-<body class="bg-gray-100">
-    <!-- Header -->
-    <header id="#header" class="bg-white shadow">
-        <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4 border-b border-yellow-500">
-            <h4 class="text-lg md:text-3xl font-extrabold text-yellow-600 tracking-wide">CryptoTrade</h4>
+<body class="bg-gradient-to-br from-[#0f0f1a] via-[#1a1a2e] to-[#141515] text-gray-200">
 
-            <div class="flex items-center gap-6 hidden md:flex">
-                <ul id="menu" class="flex items-center gap-6 text-lg font-semibold text-gray-700">
-                    <li class="cursor-pointer hover:text-yellow-600 transition pb-1 border-b-2 border-transparent">Home
-                    </li>
-                    <li class="cursor-pointer hover:text-yellow-600 transition pb-1 border-b-2 border-transparent">About
-                    </li>
-                    <li class="cursor-pointer hover:text-yellow-600 transition pb-1 border-b-2 border-transparent">
-                        Contact</li>
-                    <li class="cursor-pointer hover:text-yellow-600 transition pb-1 border-b-2 border-transparent">
-                        Setting</li>
+    <!-- Header -->
+    <header class="bg-[#141515]/60 backdrop-blur-md shadow border-b border-purple-500/40">
+        <nav class="max-w-7xl mx-auto flex justify-between items-center py-4 px-4">
+
+            <!-- Logo -->
+            <h4
+                class="text-lg md:text-3xl font-extrabold bg-gradient-to-r from-purple-400 to-cyan-300 text-transparent bg-clip-text">
+                CryptoTrade
+            </h4>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-6">
+                <ul class="flex items-center gap-6 text-lg font-semibold text-gray-300">
+                    <a href="#home" class="hover:text-purple-400 pb-1 border-b-2 border-transparent">Home</a>
+                    <a href="#service" class="hover:text-purple-400 pb-1 border-b-2 border-transparent">Service</a>
+                    <a href="#contact" class="hover:text-purple-400 pb-1 border-b-2 border-transparent">Contact</a>
+                    <a href="#setting" class="hover:text-purple-400 pb-1 border-b-2 border-transparent">Setting</a>
                 </ul>
                 <a href="./loginPage.html"
-                    class="text-lg font-bold text-yellow-600 hover:text-yellow-700 transition px-3 py-1 border-2 border-yellow-600 rounded-xl">Login</a>
+                    class="text-lg font-bold px-3 py-1 border-2 border-purple-500 rounded-xl text-purple-400 hover:bg-purple-600 hover:text-white transition">
+                    Login
+                </a>
             </div>
 
-            <button class="md:hidden border-2 border-yellow-600 p-2 rounded-xl">
+            <!-- Hamburger Button (Mobile) -->
+            <button id="menuBtn" class="md:hidden border-2 border-purple-500 p-2 rounded-xl text-purple-400">
                 <i class="hgi hgi-stroke hgi-menu-01"></i>
             </button>
-
         </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="hidden md:hidden  flex flex-col bg-[#141515] border-t border-purple-500/40 px-5 py-4 space-y-4 animate-slideDown">
+            <a href="#home" class="text-gray-300 font-semibold hover:text-purple-400">Home</a>
+            <a href="#service" class="text-gray-300 font-semibold hover:text-purple-400">Service</a>
+            <a href="#contact" class="text-gray-300 font-semibold hover:text-purple-400">Contact</a>
+            <a href="#setting" class="text-gray-300 font-semibold hover:text-purple-400">Setting</a>
+            <a href="./loginPage.html"
+                class="text-purple-400 font-bold border border-purple-500 px-3 py-1 rounded-xl text-center hover:bg-purple-600 hover:text-white">
+                Login
+            </a>
+        </div>
     </header>
-    <!-- AUTOPLAY SLIDER (ONE BY ONE SLIDE) -->
-    <!-- Slider Wrapper -->
+
+    <!-- SLIDER -->
     <div class="relative w-full overflow-hidden shadow-xl">
-        <!-- Images Slider -->
+
         <div id="slider" class="flex transition-transform duration-700 ease-out">
 
-            <!-- Slide 1 -->
             <div class="w-full flex-shrink-0">
-                <img src="./images/dynamic-data-visualization-3d.jpg" class="w-full h-screen object-cover" />
+                <img src="./images/dynamic-data-visualization-3d.jpg" class="w-full h-screen object-cover opacity-60" />
             </div>
 
-            <!-- Slide 2 -->
             <div class="w-full flex-shrink-0">
                 <img src="./images/financial-data-visualization-stock-market-charts.jpg"
-                    class="w-full h-screen object-cover" />
+                    class="w-full h-screen object-cover opacity-60" />
             </div>
 
-            <!-- Slide 3 -->
             <div class="w-full flex-shrink-0">
-                <img src="./images/dynamic-data-visualization-3d.jpg" class="w-full h-screen object-cover" />
+                <img src="./images/dynamic-data-visualization-3d.jpg" class="w-full h-screen object-cover opacity-60" />
             </div>
 
         </div>
 
-        <!-- ========================= -->
-        <!-- Overlay Text + Buttons -->
-        <!-- ========================= -->
+        <!-- Overlay Text -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center px-6">
-            <!-- Main Heading -->
-            <h1 class="text-3xl md:text-6xl font-bold text-white drop-shadow-lg px-3">
+            <h1
+                class="text-3xl md:text-6xl font-bold bg-gradient-to-r from-purple-400 to-cyan-300 text-transparent bg-clip-text drop-shadow-xl">
                 Trade Cryptocurrencies with Confidence
             </h1>
 
-            <!-- Sub Text -->
-            <p class="text-md md:text-lg md:text-2xl text-gray-200 mt-4 drop-shadow-lg">
-                Our platform offers secure, fast, and intuitive crypto trading for both beginners and experts.
+            <p class="text-md md:text-xl text-gray-300 mt-4 drop-shadow-lg">
+                Secure, fast, and intuitive crypto trading for all skill levels.
             </p>
 
-            <!-- Buttons -->
             <div class="flex justify-center gap-4 mt-6">
 
-                <!-- Button 1 -->
                 <button
-                    class="px-3 md:px-6 py-1 md:py-3 bg-blue-600 text-white font-semibold rounded-xl shadow-lg hover:bg-blue-700 transition">
+                    class="px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-purple-600 to-blue-500 text-white font-semibold rounded-xl shadow-lg hover:opacity-90 transition">
                     Get Started
                 </button>
 
-                <!-- Button 2 -->
                 <button
-                    class="px-3 md:px-6 py-1 md:py-3 bg-transparent border-2 border-white text-white font-semibold rounded-xl shadow-lg hover:bg-white hover:text-black transition">
+                    class="px-4 md:px-6 py-2 md:py-3 border-2 border-purple-400 text-purple-300 font-semibold rounded-xl shadow-lg hover:bg-purple-500 hover:text-white transition">
                     Explore Market
                 </button>
 
             </div>
-
         </div>
     </div>
 
+    <!-- SERVICES -->
+    <section id="service" class="relative bg-[#141515] py-10">
+
+        <!-- Left Image -->
+        <img src='./images/balance-1.svg' alt="" class="absolute top-0 left-0 w-25 md:w-30 opacity-80" />
+
+        <!-- Right Image -->
+        <img src="./images/balance-2.svg" alt="" class="absolute top-[30%] right-0 w-25 md:w-30 opacity-80" />
+
+        <div class="px-3 md:px-5 py-8 max-w-[85%] mx-auto relative">
+
+            <!-- Text Section -->
+            <div class="w-full md:w-[55%] mx-auto flex flex-col gap-4">
+                <h3 class="text-4xl font-bold text-center text-[#cbe5ed]">
+                    Comprehensive Services for Every Trader
+                </h3>
+
+                <p class="text-center font-semibold text-gray-300">
+                    Trade Mastery, we believe great traders aren't born—they're built through the right tools,
+                    education, and support. Our mission is simple: to empower every client with the resources
+                    they need to grow, succeed, and master.
+                </p>
+            </div>
+
+            <!-- Cards -->
+            <div class="mt-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <!-- normal cart -->
+                    <!-- <div class=" rounded-md bg-[#1c1c1c]/60 backdrop-blur-sm shadow-lg flex flex-col py-3">
+                        <div class="text-center">
+                            <i class="hgi hgi-stroke hgi-analytics-up px-4 py-4 rounded-full text-3xl text-black border-2 border-purple-300 bg-[#14ff99]"></i>
+                        </div>
+                        <h5 class="font-bold text-2xl text-[#cbe5ed] px-3 py-2 text-center ">Live Trading</h5>
+                        <p class="px-3 py-2 text-gray-300 text-center text-[#cbe5ed]">Real-time charts and market data for informed trading
+                            decisions.</p>
+                    </div> -->
+
+                    <div class="rounded-md bg-[#1c1c1c]/60 backdrop-blur-sm shadow-lg flex flex-col py-4 px-4 
+                             transition-all duration-300 ease-out group 
+                                  origin-bottom-left
+                                 hover:bg-[#14ff99] hover:text-black hover:scale-105 hover:shadow-[0_0_25px_#14ff99]">
+
+                        <div class="text-center">
+                            <i class="hgi hgi-stroke hgi-analytics-up px-4 py-4 rounded-full text-3xl 
+                                text-black border-2 border-purple-300 bg-[#14ff99]
+                                  transition-all duration-300 ease-out
+                                   group-hover:bg-black group-hover:text-[#14ff99] group-hover:rotate-6">
+                            </i>
+                        </div>
+
+                        <h5 class="font-bold text-2xl text-[#cbe5ed] px-3 py-2 text-center 
+                                  transition-all duration-300 ease-out
+                                group-hover:text-black">
+                            Live Trading
+                        </h5>
+
+                        <p class="px-3 py-2 text-gray-300 text-center text-[#cbe5ed]
+                             transition-all duration-300 ease-out
+                                      group-hover:text-black">
+                            Real-time charts and market data for informed trading decisions.
+                        </p>
+                    </div>
 
 
-    <!-- script tag added -->
+                    <div class="rounded-md bg-[#1c1c1c]/60 backdrop-blur-sm shadow-lg flex flex-col py-3 
+                             transition-all duration-300 ease-out group 
+                                  origin-bottom-left
+                                 hover:bg-[#14ff99] hover:text-black hover:scale-105 hover:shadow-[0_0_25px_#14ff99]">
+
+                        <div class="text-center">
+
+                            <!-- <i class="hgi hgi-stroke hgi-money-security"></i> -->
+                            <i class="hgi hgi-stroke hgi-money-security px-4 py-4 rounded-full text-3xl 
+                                text-black border-2 border-purple-300 bg-[#14ff99]
+                                  transition-all duration-300 ease-out
+                                   group-hover:bg-black group-hover:text-[#14ff99] group-hover:rotate-6">
+                            </i>
+                        </div>
+
+                        <h5 class="font-bold text-2xl text-[#cbe5ed] px-3 py-2 text-center 
+                                  transition-all duration-300 ease-out
+                                group-hover:text-black">
+                            Secure Platform
+                        </h5>
+
+                        <p class="px-3 py-2 text-gray-300 text-center text-[#cbe5ed]
+                             transition-all duration-300 ease-out
+                                      group-hover:text-black">
+                            Advanced security measures to protect your assets.
+                        </p>
+                    </div>
+
+
+                    <div class="rounded-md bg-[#1c1c1c]/60 backdrop-blur-sm shadow-lg flex flex-col py-3 
+                             transition-all duration-300 ease-out group 
+                                  origin-bottom-left
+                                 hover:bg-[#14ff99] hover:text-black hover:scale-105 hover:shadow-[0_0_25px_#14ff99]">
+
+                        <div class="text-center">
+                            <!-- <i class="hgi hgi-stroke hgi-bitcoin-bag"></i> -->
+                            <i class="hgi hgi-stroke hgi-bitcoin-bag px-4 py-4 rounded-full text-3xl 
+                                text-black border-2 border-purple-300 bg-[#14ff99]
+                                  transition-all duration-300 ease-out
+                                   group-hover:bg-black group-hover:text-[#14ff99] group-hover:rotate-6">
+                            </i>
+                        </div>
+
+                        <h5 class="font-bold text-2xl text-[#cbe5ed] px-3 py-2 text-center 
+                                  transition-all duration-300 ease-out
+                                group-hover:text-black">
+                            Easy Withdrawals
+                        </h5>
+
+                        <p class="px-3 py-2 text-gray-300 text-center text-[#cbe5ed]
+                             transition-all duration-300 ease-out
+                                      group-hover:text-black">
+                            Fast and hassle-free withdrawals to your bank account.
+                        </p>
+                    </div>
+
+
+                    <div class="rounded-md bg-[#1c1c1c]/60 backdrop-blur-sm shadow-lg flex flex-col py-3 
+                             transition-all duration-300 ease-out group 
+                                  origin-bottom-left
+                                 hover:bg-[#14ff99] hover:text-black hover:scale-105 hover:shadow-[0_0_25px_#14ff99]">
+
+                        <div class="text-center">
+                            <!-- <i class="hgi hgi-stroke hgi-magnet-02"></i> -->
+                            <i class="hgi hgi-stroke hgi-analytics-up px-4 py-4 rounded-full text-3xl 
+                                text-black border-2 border-purple-300 bg-[#14ff99]
+                                  transition-all duration-300 ease-out
+                                   group-hover:bg-black group-hover:text-[#14ff99] group-hover:rotate-6">
+                            </i>
+                        </div>
+
+                        <h5 class="font-bold text-2xl text-[#cbe5ed] px-3 py-2 text-center 
+                                  transition-all duration-300 ease-out
+                                group-hover:text-black">
+                            Live Trading
+                        </h5>
+
+                        <p class="px-3 py-2 text-gray-300 text-center text-[#cbe5ed]
+                             transition-all duration-300 ease-out
+                                      group-hover:text-black">
+                            Real-time charts and market data for informed trading decisions.
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+            <!-- cart end -->
+        </div>
+
+    </section>
+
+
+    <!-- Slider Script -->
     <script>
         let index = 0;
         const slider = document.getElementById("slider");
@@ -109,19 +289,25 @@
 
         setInterval(autoPlay, 3000);
     </script>
+
+    <!-- Menu Active Border -->
     <script>
         const menuItems = document.querySelectorAll("#menu li");
 
         menuItems.forEach(item => {
             item.addEventListener("click", () => {
-                // Remove active underline from all
-                menuItems.forEach(li =>
-                    li.classList.remove("border-yellow-600")
-                );
-
-                // Add underline to clicked one
-                item.classList.add("border-yellow-600");
+                menuItems.forEach(li => li.classList.remove("border-purple-500"));
+                item.classList.add("border-purple-500");
             });
+        });
+    </script>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
         });
     </script>
 
