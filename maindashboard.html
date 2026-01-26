@@ -11,7 +11,21 @@
 
     <!-- Icon Library (your hgi icons assumed loaded) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons/css/line.css">
+
+    <!--font-add -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
     <style>
+        .poppins-medium {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
         .chart-tab {
             color: #9ca3af;
             /* gray-400 */
@@ -31,7 +45,7 @@
 
 </head>
 
-<body class="bg-[#0b1120] overflow-x-hidden">
+<body class="bg-[#0b1120] overflow-x-hidden poppins-medium">
     <div class="flex">
         <!-- ================= LEFT SIDEBAR ================= -->
         <div id="leftSidebar" class="fixed top-0 left-0 w-[70%] md:w-[20%]
@@ -183,7 +197,6 @@
 
             <!--Dashboard Content -->
             <div class="flex-1 p-6 text-white">
-
                 <div id="dashboard" class="content-section">
                     <div class="p-5 flex flex-col gap-6">
                         <div>
@@ -325,122 +338,203 @@
                     <p>User profile content here...</p>
                 </div>
 
+                <div id="crypto" class="content-section hidden flex flex-col gap-6">
+
+                    <!-- Heading -->
+                    <div class="flex flex-col gap-2">
+                        <h2 class="text-3xl font-bold">Cryptocurrencies</h2>
+                        <span class="text-md font-semibold text-gray-400">
+                            Explore and trade the top cryptocurrencies on the market
+                        </span>
+                    </div>
+
+                    <!-- Filter buttons -->
+                    <div class="flex items-center gap-3 flex-wrap">
+                        <button data-filter="all"
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-lg bg-[#020617] text-white font-semibold transition">
+                            All
+                        </button>
+
+                        <button data-filter="favorites"
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-[#020617] transition">
+                            Favorites
+                        </button>
+
+                        <button data-filter="gainers"
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-[#020617] transition">
+                            Gainers
+                        </button>
+
+                        <button data-filter="losers"
+                            class="filter-btn px-2 py-1 md:px-4 md:py-2 rounded-lg bg-gray-800 text-gray-300 hover:bg-[#020617] transition">
+                            Losers
+                        </button>
+                    </div>
+
+                    <!-- Filtered content -->
+                    <div class="mt-4">
+
+                        <div id="all" class="crypto-content">
+                            <p>All cryptocurrencies list</p>
+                        </div>
+
+                        <div id="favorites" class="crypto-content hidden">
+                            <p>Favorite cryptocurrencies</p>
+                        </div>
+
+                        <div id="gainers" class="crypto-content hidden">
+                            <p>Top gainers</p>
+                        </div>
+
+                        <div id="losers" class="crypto-content hidden">
+                            <p>Top losers</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
             </div>
 
-            <!-- market analysist  content-->
-
-
-
-            <!-- Market analysist -->
-
         </div>
-    </div>
 
 
 
 
 
-    <!-- ================= JS TOGGLE ================= -->
-    <script>
-        const sidebar = document.getElementById("leftSidebar");
-        const toggleBtn = document.getElementById("openLeftContent");
+        <!-- ================= JS TOGGLE ================= -->
+        <script>
+            const sidebar = document.getElementById("leftSidebar");
+            const toggleBtn = document.getElementById("openLeftContent");
 
-        toggleBtn.addEventListener("click", () => {
-            sidebar.classList.toggle("-translate-x-full");
-        });
-
-        document.addEventListener("click", (e) => {
-            if (window.innerWidth < 768 &&
-                !sidebar.contains(e.target) &&
-                !toggleBtn.contains(e.target)) {
-                sidebar.classList.add("-translate-x-full");
-            }
-        });
-    </script>
-
-    <!--  -->
-    <script>
-        const logoutBtn = document.getElementById("logoutBtn");
-        const logoutModal = document.getElementById("logoutModal");
-        const cancelLogout = document.getElementById("cancelLogout");
-        const confirmLogout = document.getElementById("confirmLogout");
-
-        logoutBtn.addEventListener("click", () => {
-            logoutModal.classList.remove("hidden");
-            logoutModal.classList.add("flex");
-        });
-
-        cancelLogout.addEventListener("click", () => {
-            logoutModal.classList.add("hidden");
-            logoutModal.classList.remove("flex");
-        });
-
-        confirmLogout.addEventListener("click", () => {
-            // 🔥 Replace with your logout logic
-            // Example:
-            // localStorage.clear();
-            // window.location.href = "login.html";
-
-            alert("Logged out successfully!");
-        });
-    </script>
-    <!-- over view -->
-    <script>
-        const tabs = document.querySelectorAll(".chart-tab");
-
-        tabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-                tabs.forEach(t => t.classList.remove("active"));
-                tab.classList.add("active");
+            toggleBtn.addEventListener("click", () => {
+                sidebar.classList.toggle("-translate-x-full");
             });
-        });
-    </script>
-    <!-- over view script -->
-    <script>
-        const tabss = document.querySelectorAll(".chart-tab");
-        const contents = document.querySelectorAll(".tab-content");
 
-        tabs.forEach(tab => {
-            tab.addEventListener("click", () => {
-                // remove active tab
-                tabs.forEach(t => t.classList.remove("active"));
-                tab.classList.add("active");
-
-                // hide all content
-                contents.forEach(content => content.classList.add("hidden"));
-
-                // show selected content
-                const target = tab.getAttribute("data-tab");
-                document
-                    .querySelector(`[data-content="${target}"]`)
-                    .classList.remove("hidden");
+            document.addEventListener("click", (e) => {
+                if (window.innerWidth < 768 &&
+                    !sidebar.contains(e.target) &&
+                    !toggleBtn.contains(e.target)) {
+                    sidebar.classList.add("-translate-x-full");
+                }
             });
-        });
-    </script>
+        </script>
 
-    <!-- main dashboard logic -->
-    <script>
-        const buttons = document.querySelectorAll(".menu-btn");
-        const sections = document.querySelectorAll(".content-section");
+        <!--  -->
+        <script>
+            const logoutBtn = document.getElementById("logoutBtn");
+            const logoutModal = document.getElementById("logoutModal");
+            const cancelLogout = document.getElementById("cancelLogout");
+            const confirmLogout = document.getElementById("confirmLogout");
 
-        buttons.forEach(btn => {
-            btn.addEventListener("click", () => {
-                const target = btn.dataset.section;
+            logoutBtn.addEventListener("click", () => {
+                logoutModal.classList.remove("hidden");
+                logoutModal.classList.add("flex");
+            });
 
-                // hide all sections
-                sections.forEach(section => {
-                    section.classList.add("hidden");
+            cancelLogout.addEventListener("click", () => {
+                logoutModal.classList.add("hidden");
+                logoutModal.classList.remove("flex");
+            });
+
+            confirmLogout.addEventListener("click", () => {
+                // 🔥 Replace with your logout logic
+                // Example:
+                // localStorage.clear();
+                // window.location.href = "login.html";
+
+                alert("Logged out successfully!");
+            });
+        </script>
+        <!-- over view -->
+        <script>
+            const tabs = document.querySelectorAll(".chart-tab");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    tabs.forEach(t => t.classList.remove("active"));
+                    tab.classList.add("active");
                 });
-
-                // show selected section
-                document.getElementById(target).classList.remove("hidden");
-
-                // active style (optional)
-                buttons.forEach(b => b.classList.remove("bg-[#020617]"));
-                btn.classList.add("bg-[#020617]");
             });
-        });
-    </script>
+        </script>
+        <!-- over view script -->
+        <script>
+            const tabss = document.querySelectorAll(".chart-tab");
+            const contents = document.querySelectorAll(".tab-content");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    // remove active tab
+                    tabs.forEach(t => t.classList.remove("active"));
+                    tab.classList.add("active");
+
+                    // hide all content
+                    contents.forEach(content => content.classList.add("hidden"));
+
+                    // show selected content
+                    const target = tab.getAttribute("data-tab");
+                    document
+                        .querySelector(`[data-content="${target}"]`)
+                        .classList.remove("hidden");
+                });
+            });
+        </script>
+
+        <!-- main dashboard logic -->
+        <script>
+            const buttons = document.querySelectorAll(".menu-btn");
+            const sections = document.querySelectorAll(".content-section");
+
+            buttons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const target = btn.dataset.section;
+
+                    // hide all sections
+                    sections.forEach(section => {
+                        section.classList.add("hidden");
+                    });
+
+                    // show selected section
+                    document.getElementById(target).classList.remove("hidden");
+
+                    // active style (optional)
+                    buttons.forEach(b => b.classList.remove("bg-[#020617]"));
+                    btn.classList.add("bg-[#020617]");
+                });
+            });
+        </script>
+
+
+
+        <!-- crypto dashboard script -->
+        <script>
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const cryptoSections = document.querySelectorAll(".crypto-content");
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const target = btn.dataset.filter;
+
+                    // hide all crypto sections
+                    cryptoSections.forEach(section => {
+                        section.classList.add("hidden");
+                    });
+
+                    // show selected section
+                    document.getElementById(target).classList.remove("hidden");
+
+                    // active button style
+                    filterButtons.forEach(b => {
+                        b.classList.remove("bg-[#020617]", "text-white");
+                        b.classList.add("bg-gray-800", "text-gray-300");
+                    });
+
+                    btn.classList.add("bg-[#020617]", "text-white");
+                    btn.classList.remove("bg-gray-800", "text-gray-300");
+                });
+            });
+        </script>
+
 
 
 </body>
