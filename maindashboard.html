@@ -50,50 +50,51 @@
             <!-- Menu -->
             <div class="mt-6 px-4 flex flex-col gap-3">
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="dashboard"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-green-400 text-xl">📊</i>
                     <span class="text-gray-300 group-hover:text-white font-semibold">Dashboard</span>
-                </div>
+                </button>
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="market"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-sky-400 text-xl">📈</i>
-                    <span class=" text-gray-300 group-hover:text-white font-semibold">Market
-                        Analysis</span>
-                </div>
+                    <span class="text-gray-300 group-hover:text-white font-semibold">Market Analysis</span>
+                </button>
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="crypto"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-yellow-400 text-xl">₿</i>
-                    <span class=" text-gray-300 group-hover:text-white font-semibold">Cryptocurrencies</span>
-                </div>
+                    <span class="text-gray-300 group-hover:text-white font-semibold">Cryptocurrencies</span>
+                </button>
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="transaction"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-purple-400 text-xl">💼</i>
-                    <span class=" text-gray-300 group-hover:text-white font-semibold">Transaction</span>
-                </div>
+                    <span class="text-gray-300 group-hover:text-white font-semibold">Transaction</span>
+                </button>
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="bank"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-pink-400 text-xl">🏦</i>
-                    <span class=" text-gray-300 group-hover:text-white font-semibold">Bank Details</span>
-                </div>
+                    <span class="text-gray-300 group-hover:text-white font-semibold">Bank Details</span>
+                </button>
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="profile"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-emerald-400 text-xl">👤</i>
-                    <!-- <i class="hgi hgi-stroke hgi-user-circle text-xl"></i> -->
-                    <span class=" text-gray-300 group-hover:text-white font-semibold">Profile</span>
-                </div>
+                    <span class="text-gray-300 group-hover:text-white font-semibold">Profile</span>
+                </button>
 
-                <div
-                    class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
+                <button data-section="settings"
+                    class="menu-btn group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-orange-400 text-xl">⚙️</i>
-                    <span class=" text-gray-300 group-hover:text-white font-semibold">Setting</span>
-                </div>
+                    <span class="text-gray-300 group-hover:text-white font-semibold">Settings</span>
+                </button>
+
             </div>
+
+
             <!-- Admin / Logout Section -->
             <div class="absolute bottom-0 left-0 w-full px-4 py-4 border-t border-gray-800">
                 <div class="flex items-center justify-between">
@@ -101,10 +102,10 @@
                     <div class="flex items-center gap-3">
                         <div
                             class="w-10 h-10 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg font-bold">
-                            JD
+                            SM
                         </div>
                         <div class="leading-tight">
-                            <h4 class="text-sm font-semibold text-gray-200">John Doe</h4>
+                            <h4 class="text-sm font-semibold text-gray-200">Swarup</h4>
                             <p class="text-xs text-gray-400">Admin</p>
                         </div>
                     </div>
@@ -181,130 +182,157 @@
             </div>
 
             <!--Dashboard Content -->
-            <div class="p-5 flex flex-col gap-6">
-                <div>
-                    <h3 class="text-2xl font-semibold text-white">Welcome to CryptoTrade</h3>
-                    <p class="text-gray-400">Here's an overview of your trading activities.</p>
+            <div class="flex-1 p-6 text-white">
+
+                <div id="dashboard" class="content-section">
+                    <div class="p-5 flex flex-col gap-6">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-white">Welcome to CryptoTrade</h3>
+                            <p class="text-gray-400">Here's an overview of your trading activities.</p>
+                        </div>
+
+                        <!-- Cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+                            <!-- Card -->
+                            <div
+                                class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
+                                <div class="flex justify-between">
+                                    <h4 class="text-gray-300 font-semibold">Total Users</h4>
+                                    <span class="text-green-400">👥</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span class="text-3xl font-bold text-white">1250</span>
+                                    <span class="text-green-400">▲ 12.5%</span>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">from last month</p>
+                            </div>
+
+                            <div
+                                class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
+                                <div class="flex justify-between">
+                                    <h4 class="text-gray-300 font-semibold">Total Revenue</h4>
+                                    <span class="text-green-400">💰</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span class="text-3xl font-bold text-white">$425k</span>
+                                    <span class="text-green-400">▲ 18.2%</span>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">from last month</p>
+                            </div>
+
+                            <div
+                                class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
+                                <div class="flex justify-between">
+                                    <h4 class="text-gray-300 font-semibold">Active Trade</h4>
+                                    <span class="text-green-400">📊</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span class="text-3xl font-bold text-white">3,456</span>
+                                    <span class="text-green-400">▲ 7.4%</span>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">from last month</p>
+                            </div>
+
+                            <div
+                                class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
+                                <div class="flex justify-between">
+                                    <h4 class="text-gray-300 font-semibold">Avg Session</h4>
+                                    <span class="text-green-400">⏱️</span>
+                                </div>
+                                <div class="flex justify-between items-center mt-3">
+                                    <span class="text-3xl font-bold text-white">2h 30m</span>
+                                    <span class="text-green-400">▲ 12.5%</span>
+                                </div>
+                                <p class="text-sm text-gray-500 mt-2">from last month</p>
+                            </div>
+
+                        </div>
+                        <!-- Charts Tabs -->
+                        <div
+                            class="flex flex-wrap items-center gap-2 bg-[#020617] p-1 rounded-xl border border-gray-800 w-fit">
+
+                            <button class="chart-tab active px-4 py-2 text-sm font-semibold rounded-lg transition"
+                                data-tab="overview">
+                                Overview
+                            </button>
+
+                            <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition"
+                                data-tab="user">
+                                User
+                            </button>
+
+                            <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition"
+                                data-tab="trading">
+                                Trading
+                            </button>
+
+                            <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition"
+                                data-tab="revenue">
+                                Revenue
+                            </button>
+
+                        </div>
+
+
+                        <!-- platform overview -->
+                        <!-- Platform Content -->
+                        <div class="mt-6">
+                            <!-- Overview -->
+                            <div class="tab-content block" data-content="overview">
+                                <h3 class="text-xl font-semibold text-white">Platform Overview</h3>
+                                <p class="text-gray-400 mt-1">
+                                    Summary of key metrics across the platform
+                                </p>
+                            </div>
+
+                            <!-- User -->
+                            <div class="tab-content hidden" data-content="user">
+                                <h3 class="text-xl font-semibold text-white">User Activity</h3>
+                                <p class="text-gray-400 mt-1">
+                                    User engagement, new signups, and activity stats
+                                </p>
+                            </div>
+
+                            <!-- Trading -->
+                            <div class="tab-content hidden" data-content="trading">
+                                <h3 class="text-xl font-semibold text-white">Trading Insights</h3>
+                                <p class="text-gray-400 mt-1">
+                                    Market trends, volume, and trade history
+                                </p>
+                            </div>
+
+                            <!-- Revenue -->
+                            <div class="tab-content hidden" data-content="revenue">
+                                <h3 class="text-xl font-semibold text-white">Revenue Report</h3>
+                                <p class="text-gray-400 mt-1">
+                                    Earnings, growth, and financial performance
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
 
-                <!-- Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-
-                    <!-- Card -->
-                    <div
-                        class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
-                        <div class="flex justify-between">
-                            <h4 class="text-gray-300 font-semibold">Total Users</h4>
-                            <span class="text-green-400">👥</span>
-                        </div>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-3xl font-bold text-white">1250</span>
-                            <span class="text-green-400">▲ 12.5%</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-2">from last month</p>
-                    </div>
-
-                    <div
-                        class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
-                        <div class="flex justify-between">
-                            <h4 class="text-gray-300 font-semibold">Total Revenue</h4>
-                            <span class="text-green-400">💰</span>
-                        </div>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-3xl font-bold text-white">$425k</span>
-                            <span class="text-green-400">▲ 18.2%</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-2">from last month</p>
-                    </div>
-
-                    <div
-                        class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
-                        <div class="flex justify-between">
-                            <h4 class="text-gray-300 font-semibold">Active Trade</h4>
-                            <span class="text-green-400">📊</span>
-                        </div>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-3xl font-bold text-white">3,456</span>
-                            <span class="text-green-400">▲ 7.4%</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-2">from last month</p>
-                    </div>
-
-                    <div
-                        class="bg-[#111827] border border-green-500/40 rounded-xl p-4 hover:-translate-y-1 transition hover:shadow-[0_0_20px_rgba(34,197,94,0.35)]">
-                        <div class="flex justify-between">
-                            <h4 class="text-gray-300 font-semibold">Avg Session</h4>
-                            <span class="text-green-400">⏱️</span>
-                        </div>
-                        <div class="flex justify-between items-center mt-3">
-                            <span class="text-3xl font-bold text-white">2h 30m</span>
-                            <span class="text-green-400">▲ 12.5%</span>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-2">from last month</p>
-                    </div>
-
-                </div>
-                <!-- Charts Tabs -->
-                <div class="flex flex-wrap items-center gap-2 bg-[#020617] p-1 rounded-xl border border-gray-800 w-fit">
-
-                    <button class="chart-tab active px-4 py-2 text-sm font-semibold rounded-lg transition"
-                        data-tab="overview">
-                        Overview
-                    </button>
-
-                    <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition" data-tab="user">
-                        User
-                    </button>
-
-                    <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition" data-tab="trading">
-                        Trading
-                    </button>
-
-                    <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition" data-tab="revenue">
-                        Revenue
-                    </button>
-
+                <div id="market" class="content-section hidden">
+                    <h1 class="text-2xl font-bold">Market Analysis</h1>
+                    <p>Market analysis content here...</p>
                 </div>
 
-
-                <!-- platform overview -->
-                <!-- Platform Content -->
-                <div class="mt-6">
-                    <!-- Overview -->
-                    <div class="tab-content block" data-content="overview">
-                        <h3 class="text-xl font-semibold text-white">Platform Overview</h3>
-                        <p class="text-gray-400 mt-1">
-                            Summary of key metrics across the platform
-                        </p>
-                    </div>
-
-                    <!-- User -->
-                    <div class="tab-content hidden" data-content="user">
-                        <h3 class="text-xl font-semibold text-white">User Activity</h3>
-                        <p class="text-gray-400 mt-1">
-                            User engagement, new signups, and activity stats
-                        </p>
-                    </div>
-
-                    <!-- Trading -->
-                    <div class="tab-content hidden" data-content="trading">
-                        <h3 class="text-xl font-semibold text-white">Trading Insights</h3>
-                        <p class="text-gray-400 mt-1">
-                            Market trends, volume, and trade history
-                        </p>
-                    </div>
-
-                    <!-- Revenue -->
-                    <div class="tab-content hidden" data-content="revenue">
-                        <h3 class="text-xl font-semibold text-white">Revenue Report</h3>
-                        <p class="text-gray-400 mt-1">
-                            Earnings, growth, and financial performance
-                        </p>
-                    </div>
-
+                <div id="profile" class="content-section hidden">
+                    <h1 class="text-2xl font-bold">Profile</h1>
+                    <p>User profile content here...</p>
                 </div>
 
             </div>
+
+            <!-- market analysist  content-->
+
+
+
+            <!-- Market analysist -->
+
         </div>
     </div>
 
@@ -390,6 +418,29 @@
         });
     </script>
 
+    <!-- main dashboard logic -->
+    <script>
+        const buttons = document.querySelectorAll(".menu-btn");
+        const sections = document.querySelectorAll(".content-section");
+
+        buttons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const target = btn.dataset.section;
+
+                // hide all sections
+                sections.forEach(section => {
+                    section.classList.add("hidden");
+                });
+
+                // show selected section
+                document.getElementById(target).classList.remove("hidden");
+
+                // active style (optional)
+                buttons.forEach(b => b.classList.remove("bg-[#020617]"));
+                btn.classList.add("bg-[#020617]");
+            });
+        });
+    </script>
 
 
 </body>
