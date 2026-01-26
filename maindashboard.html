@@ -11,6 +11,24 @@
 
     <!-- Icon Library (your hgi icons assumed loaded) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons/css/line.css">
+    <style>
+        .chart-tab {
+            color: #9ca3af;
+            /* gray-400 */
+        }
+
+        .chart-tab:hover {
+            background-color: #0f172a;
+            color: white;
+        }
+
+        .chart-tab.active {
+            background: linear-gradient(to right, #38bdf8, #2563eb);
+            color: white;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+        }
+    </style>
+
 </head>
 
 <body class="bg-[#0b1120] overflow-x-hidden">
@@ -66,6 +84,7 @@
                 <div
                     class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer hover:bg-[#020617] transition">
                     <i class="text-emerald-400 text-xl">👤</i>
+                    <!-- <i class="hgi hgi-stroke hgi-user-circle text-xl"></i> -->
                     <span class=" text-gray-300 group-hover:text-white font-semibold">Profile</span>
                 </div>
 
@@ -75,11 +94,71 @@
                     <span class=" text-gray-300 group-hover:text-white font-semibold">Setting</span>
                 </div>
             </div>
-            <div class="">
-                <div>
-                    <i class="hgi hgi-stroke hgi-user-circle"></i>
+            <!-- Admin / Logout Section -->
+            <div class="absolute bottom-0 left-0 w-full px-4 py-4 border-t border-gray-800">
+                <div class="flex items-center justify-between">
+                    <!-- Admin Info -->
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-10 h-10 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg font-bold">
+                            JD
+                        </div>
+                        <div class="leading-tight">
+                            <h4 class="text-sm font-semibold text-gray-200">John Doe</h4>
+                            <p class="text-xs text-gray-400">Admin</p>
+                        </div>
+                    </div>
+
+                    <!-- Logout -->
+                    <button id="logoutBtn"
+                        class="flex items-center gap-2 px-3 py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 transition group">
+                        <i class="hgi hgi-stroke hgi-logout-square-01 text-xl text-red-400"></i>
+                        <span class="text-sm text-red-400 font-semibold">
+                            Logout
+                        </span>
+                    </button>
+
+                    <!-- Logout Modal -->
+                    <div id="logoutModal"
+                        class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-[999]">
+
+                        <div
+                            class="bg-gradient-to-b from-[#0f172a] to-[#020617] w-[90%] max-w-sm rounded-2xl shadow-2xl border border-gray-800 p-6 text-center">
+
+                            <!-- Icon -->
+                            <div
+                                class="w-14 h-14 mx-auto flex items-center justify-center rounded-full bg-red-500/10 text-red-400 text-2xl mb-4">
+                                ⚠️
+                            </div>
+
+                            <!-- Text -->
+                            <h3 class="text-lg font-semibold text-white mb-2">
+                                Confirm Logout
+                            </h3>
+                            <p class="text-sm text-gray-400 mb-6">
+                                Are you sure you want to log out?
+                            </p>
+
+                            <!-- Buttons -->
+                            <div class="flex gap-3">
+                                <button id="cancelLogout"
+                                    class="w-1/2 py-2 rounded-xl bg-gray-700/50 text-gray-300 hover:bg-gray-600 transition">
+                                    Cancel
+                                </button>
+
+                                <button id="confirmLogout"
+                                    class="w-1/2 py-2 rounded-xl bg-red-500 text-white hover:bg-red-600 transition">
+                                    <a href="./index.html">
+                                        Logout
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
         </div>
 
         <!-- ================= RIGHT CONTENT ================= -->
@@ -101,9 +180,8 @@
                 </div>
             </div>
 
-            <!-- Content -->
+            <!--Dashboard Content -->
             <div class="p-5 flex flex-col gap-6">
-
                 <div>
                     <h3 class="text-2xl font-semibold text-white">Welcome to CryptoTrade</h3>
                     <p class="text-gray-400">Here's an overview of your trading activities.</p>
@@ -166,9 +244,73 @@
                     </div>
 
                 </div>
+                <!-- Charts Tabs -->
+                <div class="flex flex-wrap items-center gap-2 bg-[#020617] p-1 rounded-xl border border-gray-800 w-fit">
+
+                    <button class="chart-tab active px-4 py-2 text-sm font-semibold rounded-lg transition"
+                        data-tab="overview">
+                        Overview
+                    </button>
+
+                    <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition" data-tab="user">
+                        User
+                    </button>
+
+                    <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition" data-tab="trading">
+                        Trading
+                    </button>
+
+                    <button class="chart-tab px-4 py-2 text-sm font-semibold rounded-lg transition" data-tab="revenue">
+                        Revenue
+                    </button>
+
+                </div>
+
+
+                <!-- platform overview -->
+                <!-- Platform Content -->
+                <div class="mt-6">
+                    <!-- Overview -->
+                    <div class="tab-content block" data-content="overview">
+                        <h3 class="text-xl font-semibold text-white">Platform Overview</h3>
+                        <p class="text-gray-400 mt-1">
+                            Summary of key metrics across the platform
+                        </p>
+                    </div>
+
+                    <!-- User -->
+                    <div class="tab-content hidden" data-content="user">
+                        <h3 class="text-xl font-semibold text-white">User Activity</h3>
+                        <p class="text-gray-400 mt-1">
+                            User engagement, new signups, and activity stats
+                        </p>
+                    </div>
+
+                    <!-- Trading -->
+                    <div class="tab-content hidden" data-content="trading">
+                        <h3 class="text-xl font-semibold text-white">Trading Insights</h3>
+                        <p class="text-gray-400 mt-1">
+                            Market trends, volume, and trade history
+                        </p>
+                    </div>
+
+                    <!-- Revenue -->
+                    <div class="tab-content hidden" data-content="revenue">
+                        <h3 class="text-xl font-semibold text-white">Revenue Report</h3>
+                        <p class="text-gray-400 mt-1">
+                            Earnings, growth, and financial performance
+                        </p>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </div>
+
+
+
+
 
     <!-- ================= JS TOGGLE ================= -->
     <script>
@@ -187,6 +329,68 @@
             }
         });
     </script>
+
+    <!--  -->
+    <script>
+        const logoutBtn = document.getElementById("logoutBtn");
+        const logoutModal = document.getElementById("logoutModal");
+        const cancelLogout = document.getElementById("cancelLogout");
+        const confirmLogout = document.getElementById("confirmLogout");
+
+        logoutBtn.addEventListener("click", () => {
+            logoutModal.classList.remove("hidden");
+            logoutModal.classList.add("flex");
+        });
+
+        cancelLogout.addEventListener("click", () => {
+            logoutModal.classList.add("hidden");
+            logoutModal.classList.remove("flex");
+        });
+
+        confirmLogout.addEventListener("click", () => {
+            // 🔥 Replace with your logout logic
+            // Example:
+            // localStorage.clear();
+            // window.location.href = "login.html";
+
+            alert("Logged out successfully!");
+        });
+    </script>
+    <!-- over view -->
+    <script>
+        const tabs = document.querySelectorAll(".chart-tab");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+            });
+        });
+    </script>
+    <!-- over view script -->
+    <script>
+        const tabss = document.querySelectorAll(".chart-tab");
+        const contents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                // remove active tab
+                tabs.forEach(t => t.classList.remove("active"));
+                tab.classList.add("active");
+
+                // hide all content
+                contents.forEach(content => content.classList.add("hidden"));
+
+                // show selected content
+                const target = tab.getAttribute("data-tab");
+                document
+                    .querySelector(`[data-content="${target}"]`)
+                    .classList.remove("hidden");
+            });
+        });
+    </script>
+
+
 
 </body>
 
