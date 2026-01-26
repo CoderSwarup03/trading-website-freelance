@@ -31,6 +31,108 @@
         </div>
     </div>
 
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Crypto Dashboard</title>
+
+        <!-- Tailwind CDN -->
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Icon CDN (example – keep yours if already added) -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hugeicons@latest/css/hugeicons.css">
+    </head>
+
+    <body class="bg-[#0b0f1a]">
+
+        <!-- Sidebar -->
+        <div id="leftSidebar" class="fixed top-0 left-0 hidden md:block w-[20%] bg-gradient-to-b from-[#0f172a] via-[#020617] to-[#020617] 
+        h-screen rounded-tr-3xl rounded-br-3xl shadow-2xl border-r border-gray-800">
+
+            <!-- Logo -->
+            <h4 class="text-2xl font-bold text-white text-center py-5 border-b border-gray-800 tracking-wide">
+                CryptoTrade
+            </h4>
+
+            <!-- Menu -->
+            <div class="mt-6 px-4 flex flex-col gap-3">
+
+                <!-- Item -->
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-dashboard-circle text-xl text-[#22c55e]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Dashboard
+                    </h4>
+                </div>
+
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-waterfall-up-02 text-xl text-[#38bdf8]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Market Analysis
+                    </h4>
+                </div>
+
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-bitcoin-transaction text-xl text-[#facc15]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Cryptocurrencies
+                    </h4>
+                </div>
+
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-bitcoin-wallet text-xl text-[#a78bfa]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Transaction
+                    </h4>
+                </div>
+
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-bank text-xl text-[#fb7185]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Bank Details
+                    </h4>
+                </div>
+
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-user-circle text-xl text-[#34d399]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Profile
+                    </h4>
+                </div>
+
+                <div class="group flex items-center gap-3 px-4 py-3 rounded-xl cursor-pointer 
+                hover:bg-[#020617] hover:shadow-lg transition-all duration-300">
+                    <i class="hgi hgi-stroke hgi-bitcoin-setting text-xl text-[#f97316]"></i>
+                    <h4 class="hidden md:block text-lg font-semibold text-gray-300 group-hover:text-white">
+                        Setting
+                    </h4>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="md:ml-[20%] p-8 text-white">
+            <h1 class="text-3xl font-bold">Dashboard Content</h1>
+            <p class="text-gray-400 mt-2">
+                Sidebar is fixed. Scroll the page and it will stay in place.
+            </p>
+        </div>
+
+    </body>
+
+    </html>
+
+
 </body>
 
 </html>
